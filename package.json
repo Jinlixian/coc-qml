@@ -1,6 +1,6 @@
 {
   "name": "coc-qml",
-  "version": "0.0.1-development",
+  "version": "0.0.2-development",
   "description": "Support qml of qt6",
   "author": "JinLixian <mail@jinlixian.com>",
   "license": "MIT",
@@ -47,6 +47,26 @@
           "type": "boolean",
           "default": true,
           "description": "Enable coc-qml extension"
+        },
+        "coc-qml.qmllsArgs": {
+          "type": "array",
+          "default": [],
+          "description": "Additional arguments for qml"
+        },
+        "coc-qml.qmllsPath": {
+          "type": "string",
+          "default": "qmlls",
+          "description": "Path of qmlls"
+        },
+        "coc-qml.qmlformatPath": {
+          "type": "string",
+          "default": "qmlformat",
+          "description": "Path of qmlformat"
+        },
+        "coc-qml.qmlformatArgs": {
+          "type": "array",
+          "default": [],
+          "description": "Additional arguments for qmlformat"
         }
       }
     },

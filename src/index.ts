@@ -2,12 +2,12 @@ import {CancellationToken, commands, CompleteResult, ExtensionContext, Formattin
 //
 export async function activate(context: ExtensionContext): Promise<void> {
     const config = workspace.getConfiguration('coc-qml')
-    const isEnable = config.get<boolean>('enable', true)
+    const isEnable = config.get<boolean>('enabled', true)
     if (!isEnable) {
         return
     }
 
-    var qmlformat = config.get<string>('qmlformat', 'qmlformat')
+    var qmlformat = config.get<string>('qmlformatPath', 'qmlformat')
     var qmlformatArgs = config.get<string[]>('qmlformatArgs', [])
 
     commands.registerCommand('coc-qml.formatDocument', async () => {
@@ -21,7 +21,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
     // register Actions
 
 
-    var qmlls = config.get<string>('qmlls', 'qmlls')
+    var qmlls = config.get<string>('qmllsPath', 'qmlls')
     var qmllsArgs = config.get<string[]>('qmllsArgs', [])
 
     const serverOptions = {
@@ -32,7 +32,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
     const clientOptions = {
         documentSelector: ['qml'], // run qmlls on qml files
     }
-        // 'coc-qml', // the id
+    // 'coc-qml', // the id
     const client = new LanguageClient(
         'coc-qml', // the name of the language server
         serverOptions,
